@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@import '@fontsource/playfair-display/500.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/playfair-display/500-italic.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #f7f1e6;
+  --color-cream-200: #efe6d3;
+
+  --color-navy-50: #f2f6fb;
+  --color-navy-100: #dfe8f4;
+  --color-navy-200: #b9cbe6;
+  --color-navy-300: #8ba9d1;
+  --color-navy-400: #5a80b3;
+  --color-navy-500: #3a6094;
+  --color-navy-600: #294a78;
+  --color-navy-700: #1f3a60;
+  --color-navy-800: #172c4a;
+  --color-navy-900: #101f36;
+  --color-navy-950: #0a1526;
+
+  --color-gold-300: #ecd39f;
+  --color-gold-400: #dcb268;
+  --color-gold-500: #c9973f;
+  --color-gold-600: #a8752f;
+  --color-gold-700: #855c26;
+
+  --color-crimson-500: #a52d3f;
+  --color-crimson-600: #8a2332;
+  --color-crimson-700: #6e1b26;
+  --color-crimson-800: #4a1620;
+  --color-crimson-900: #350f18;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  @apply bg-cream-50 text-navy-900 antialiased dark:bg-navy-950 dark:text-cream-100;
+}
