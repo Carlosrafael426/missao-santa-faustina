@@ -8,11 +8,11 @@ interface PageHeroProps {
 
 export function PageHero({ kicker, title, description, children }: PropsWithChildren<PageHeroProps>) {
   return (
-    <section className="bg-navy-950 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section className="bg-cream-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 dark:bg-navy-950">
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
-        <span className="text-xs font-semibold tracking-[0.2em] text-gold-400 uppercase">{kicker}</span>
-        <h1 className="font-display text-4xl font-semibold text-cream-50 sm:text-5xl">{title}</h1>
-        <p className="max-w-2xl text-base text-cream-100/80 sm:text-lg">{description}</p>
+        <span className="text-xs font-semibold tracking-[0.2em] text-gold-600 uppercase dark:text-gold-400">{kicker}</span>
+        <h1 className="font-display text-4xl font-semibold text-navy-900 sm:text-5xl dark:text-cream-50">{title}</h1>
+        <p className="max-w-2xl text-base text-navy-600 sm:text-lg dark:text-cream-100/80">{description}</p>
         {children}
       </div>
     </section>

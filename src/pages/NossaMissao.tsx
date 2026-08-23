@@ -11,25 +11,61 @@ export function NossaMissao() {
         description="Somos uma comunidade católica reunida pela fé, guiada pela misericórdia e centrada em Cristo Eucarístico, a serviço da evangelização em Fazenda Rio Grande."
       />
 
-      <section className="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:px-8">
-        <div className="flex flex-col gap-3">
-          <h2 className="font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nosso propósito</h2>
-          <p className="text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
-            Anunciar a misericórdia de Deus revelada em Jesus Cristo, acolhendo cada pessoa como Ele nos acolhe,
-            e formar discípulos que vivem a fé em comunidade, na oração e no serviço ao próximo.
-          </p>
+      <section className="bg-cream-100 px-4 py-16 sm:px-6 lg:px-8 dark:bg-navy-900">
+        <div className="mx-auto flex max-w-4xl flex-col gap-8">
+          <div className="flex flex-col gap-3">
+            <h2 className="text-left font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Quem Somos</h2>
+            <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
+              A Missão Santa Faustina é uma comunidade viva e um grupo de fiéis católicos localizada no bairro Eucaliptos,
+              mais especificamente na região do Jardim Greenfield, em Fazenda Rio Grande - PR. Vinculada diretamente à
+              Paróquia Nossa Senhora de Fátima, nossa comunidade nasceu sob a inspiração da espiritualidade da Divina
+              Misericórdia e do carisma de Santa Faustina Kowalska, apóstola da misericórdia de Jesus.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h2 className="text-left font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nossa História e Origem</h2>
+            <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
+              A comunidade teve sua origem inspirada a partir de uma marcante visita pastoral realizada pelo Bispo Dom Celso.
+              Desde a sua concepção, o principal objetivo da missão tem sido ir ao encontro das famílias,
+              acolher e promover o resgate de fiéis católicos que se encontravam afastados da vida paroquial e dos sacramentos,
+              oferecendo um espaço fraterno de escuta e renovação da fé.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h2 className="text-left font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Onde Nos Reunimos e Nosso Futuro</h2>
+            <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
+              Atualmente, como uma comunidade em constante expansão e acolhimento, os nossos encontros acontecem através das missas dominicais,
+              que são celebradas quinzenalmente aos domingos nas dependências da Escola Net Franco, situada no Jardim Greenfield.
+              Estamos em constante crescimento e, com a graça de Deus, mobilizando nossos esforços em uma grande arrecadação para
+              a compra de um terreno próprio e a construção da nossa tão sonhada capela no bairro, consolidando ainda mais o nosso espaço de evangelização.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-3">
-          <h2 className="font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nossa visão</h2>
-          <p className="text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
-            Ser uma comunidade que irradia a mensagem "Jesus, eu confio em Vós" para todas as famílias do nosso
-            bairro e além, através de grupos de oração, formação e ação social.
-          </p>
+      </section>
+
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2">
+          <div className="flex flex-col gap-3">
+            <h2 className="font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nosso propósito</h2>
+            <p className="text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
+              Anunciar a misericórdia de Deus revelada em Jesus Cristo, acolhendo cada pessoa como Ele nos acolhe,
+              e formar discípulos que vivem a fé em comunidade, na oração e no serviço ao próximo.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <h2 className="font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nossa visão</h2>
+            <p className="text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
+              Ser uma comunidade que irradia a mensagem "Jesus, eu confio em Vós" para todas as famílias do nosso
+              bairro e além, através de grupos de oração, formação e ação social.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="bg-cream-100 px-4 py-16 sm:px-6 lg:px-8 dark:bg-navy-900">
-        <div className="mx-auto flex max-w-5xl flex-col gap-10">
+        <div className="mx-auto flex max-w-4xl flex-col gap-10">
           <h2 className="text-center font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">
             Pilares que sustentam nossa caminhada
           </h2>
