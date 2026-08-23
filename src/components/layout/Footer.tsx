@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Cross } from 'lucide-react'
+import { Cross, Mail, MapPin, Phone } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
-import { navLinks } from '../../data/navigation'
 import { siteInfo } from '../../data/site'
 
 export function Footer() {
@@ -24,13 +23,26 @@ export function Footer() {
           </span>
         </Link>
 
-        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-semibold tracking-wide text-navy-700 uppercase dark:text-cream-100/80">
-          {navLinks.map((link) => (
-            <Link key={link.path} to={link.path} className="transition-colors hover:text-gold-600 dark:hover:text-gold-400">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex flex-col items-center gap-2 text-sm text-navy-700 sm:flex-row sm:gap-6 dark:text-cream-100/80">
+          <span className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 shrink-0 text-gold-600 dark:text-gold-400" aria-hidden="true" />
+            {siteInfo.neighborhood}, {siteInfo.city}
+          </span>
+          <a
+            href={`tel:${siteInfo.phone}`}
+            className="flex items-center gap-2 transition-colors hover:text-gold-600 dark:hover:text-gold-400"
+          >
+            <Phone className="h-4 w-4 shrink-0 text-gold-600 dark:text-gold-400" aria-hidden="true" />
+            {siteInfo.phone}
+          </a>
+          <a
+            href={`mailto:${siteInfo.email}`}
+            className="flex items-center gap-2 transition-colors hover:text-gold-600 dark:hover:text-gold-400"
+          >
+            <Mail className="h-4 w-4 shrink-0 text-gold-600 dark:text-gold-400" aria-hidden="true" />
+            {siteInfo.email}
+          </a>
+        </div>
 
         <div className="flex justify-center gap-3">
           <a
