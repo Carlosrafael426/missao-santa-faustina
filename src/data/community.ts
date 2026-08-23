@@ -1,53 +1,39 @@
 import type { CommunityGroup } from '../types'
-import familia from '../assets/images/familia.jpg'
-import jovens from '../assets/images/jovens.jpg'
-import homemOrando from '../assets/images/homem-orando.jpg'
-import mulherOrando from '../assets/images/mulher-orando.jpg'
 import criancaOrando from '../assets/images/crianca-orando.jpg'
+import bazar from '../assets/images/bazar.jpg'
+import missas from '../assets/images/missas.jpg'
+import tercoCasas from '../assets/images/terco-casas.jpg'
 import maosUnidas from '../assets/images/maos-unidas.jpg'
-import maosCoracao from '../assets/images/maos-coracao.jpg'
 
 export const communityGroups: CommunityGroup[] = [
   {
-    slug: 'familias',
-    name: 'Famílias',
-    image: familia,
-    description: 'Fortalecendo o lar como a primeira igreja doméstica, unida pela fé.',
-  },
-  {
-    slug: 'jovens',
-    name: 'Jovens',
-    image: jovens,
-    description: 'Encontros, retiros e missão para viver a fé com alegria e ousadia.',
-  },
-  {
-    slug: 'homens',
-    name: 'Homens',
-    image: homemOrando,
-    description: 'Formação e fraternidade para homens que buscam viver a fé com coragem.',
-  },
-  {
-    slug: 'mulheres',
-    name: 'Mulheres',
-    image: mulherOrando,
-    description: 'Espaço de oração, partilha e crescimento espiritual entre mulheres.',
-  },
-  {
-    slug: 'criancas',
-    name: 'Crianças',
+    slug: 'catequese',
+    name: 'Catequese',
     image: criancaOrando,
-    description: 'Catequese e atividades que semeiam o amor de Deus desde cedo.',
+    description: 'Formação na fé para crianças e jovens, preparando para os sacramentos.',
   },
   {
-    slug: 'grupos-de-oracao',
-    name: 'Grupos de Oração',
+    slug: 'bazar',
+    name: 'Bazar',
+    image: bazar,
+    description: 'Feiras beneficentes que sustentam as obras e a missão da comunidade.',
+  },
+  {
+    slug: 'missas',
+    name: 'Missas',
+    image: missas,
+    description: 'Celebrações eucarísticas que reúnem a comunidade em torno do altar.',
+  },
+  {
+    slug: 'terco-nas-casas',
+    name: 'Terço nas Casas',
+    image: tercoCasas,
+    description: 'Encontros de oração do terço levados de casa em casa pelo bairro.',
+  },
+  {
+    slug: 'grupo-de-oracao',
+    name: 'Grupo de Oração',
     image: maosUnidas,
-    description: 'Comunidades reunidas semanalmente para rezar e adorar juntas.',
-  },
-  {
-    slug: 'acao-social',
-    name: 'Ação Social',
-    image: maosCoracao,
-    description: 'Levando a misericórdia de Cristo a quem mais precisa.',
+    description: 'Comunidade reunida semanalmente para rezar e adorar junta.',
   },
 ]

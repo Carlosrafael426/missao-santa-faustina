@@ -10,7 +10,7 @@ export function CommunityCarousel() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-10">
         <SectionHeading kicker="Nossa Comunidade" title="Uma família de fé e amor" />
 
-        <div className="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-2 sm:grid sm:grid-cols-4 sm:overflow-visible lg:grid-cols-7">
+        <div className="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-2 sm:grid sm:grid-cols-5 sm:overflow-visible">
           {communityGroups.map((group) => (
             <div key={group.slug} className="snap-start">
               <GroupCard group={group} />
