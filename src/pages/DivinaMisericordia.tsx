@@ -35,7 +35,7 @@ export function DivinaMisericordia() {
       <section className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,260px)_1fr] lg:px-8">
         <img
           src={jesusMisericordioso}
-          alt="Jesus Misericordioso — Jezu, ufam Tobie"
+          alt="Jesus Misericordioso — Jesus, eu confio em Vós"
           className="mx-auto w-full max-w-[220px] rounded-t-full object-cover shadow-md shadow-navy-900/10"
         />
         <p className="text-sm leading-relaxed text-navy-600 sm:text-base dark:text-cream-100/75">

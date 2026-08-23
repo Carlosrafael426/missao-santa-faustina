@@ -65,9 +65,6 @@ export function Footer() {
 
       <div className="border-t border-navy-100 px-4 py-4 text-center text-[11px] text-navy-500 sm:px-6 lg:px-8 dark:border-white/10 dark:text-cream-100/50">
         <p>© {year} Missão Santa Faustina. Todos os direitos reservados. Desenvolvido com ♥ para a glória de Deus.</p>
-        <p className="mt-1">
-          Imagem "Jezu, ufam Tobie" (1934), Eugeniusz Kazimirowski — Wikimedia Commons, domínio público.
-        </p>
       </div>
     </footer>
   )

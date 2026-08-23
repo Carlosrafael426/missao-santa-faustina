@@ -5,7 +5,7 @@ import jesusMisericordioso from '../../assets/images/jesus-misericordioso.jpg'
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream-50 dark:bg-navy-950">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-20">
         <div className="flex flex-col items-start gap-5 text-left">
           <span className="text-xs font-semibold tracking-[0.2em] text-gold-600 uppercase dark:text-gold-400">
             Bem-vindo à
@@ -26,12 +26,12 @@ export function Hero() {
           </Button>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
+        <div className="relative mx-auto w-full max-w-xs lg:max-w-sm">
           <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-crimson-500/20 via-gold-400/10 to-navy-400/20 blur-3xl" />
           <img
             src={jesusMisericordioso}
-            alt="Jesus Misericordioso — Jezu, ufam Tobie"
-            className="mx-auto w-full max-w-xs rounded-t-full object-cover shadow-xl shadow-navy-900/20 sm:max-w-sm lg:max-w-md"
+            alt="Jesus Misericordioso — Jesus, eu confio em Vós"
+            className="mx-auto w-full max-w-[220px] rounded-t-full object-cover shadow-xl shadow-navy-900/20 sm:max-w-[260px] lg:max-w-[300px]"
           />
         </div>
       </div>
