@@ -7,18 +7,18 @@ export function Hero() {
     <section className="relative overflow-hidden bg-cream-50 dark:bg-navy-950">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-20">
         <div className="flex flex-col items-start gap-5 text-left">
-          <span className="text-xs font-semibold tracking-[0.2em] text-gold-600 uppercase dark:text-gold-400">
+          <span className="text-[0.68rem] font-semibold tracking-[0.2em] text-gold-600 uppercase dark:text-gold-400">
             Bem-vindo à
           </span>
-          <h1 className="font-display text-4xl leading-[1.05] font-bold text-navy-900 sm:text-5xl lg:text-6xl dark:text-cream-50">
+          <h1 className="font-display text-[2.03rem] leading-[1.05] font-bold text-navy-900 sm:text-[2.7rem] lg:text-[3.38rem] dark:text-cream-50">
             Missão
             <br />
             <span className="text-navy-700 dark:text-cream-100">Santa Faustina</span>
           </h1>
-          <p className="max-w-md text-base text-navy-600 sm:text-lg dark:text-cream-100/80">
+          <p className="max-w-md text-[0.9rem] text-navy-600 sm:text-[1.01rem] dark:text-cream-100/80">
             Uma comunidade reunida pela fé, guiada pela misericórdia e centrada em Cristo.
           </p>
-          <p className="font-display text-xl text-gold-600 italic sm:text-2xl dark:text-gold-400">
+          <p className="font-display text-lg text-gold-600 italic sm:text-[1.35rem] dark:text-gold-400">
             Jesus, eu confio em Vós.
           </p>
           <Button as={Link} to="/nossa-missao" withArrow>
