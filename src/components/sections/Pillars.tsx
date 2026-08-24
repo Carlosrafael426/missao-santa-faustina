@@ -12,7 +12,7 @@ export function Pillars() {
 
         <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
           {pillars.map((pillar) => (
-            <div key={pillar.title} className="flex flex-col items-start gap-4 text-left">
+            <div key={pillar.title} className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
               <IconBadge icon={pillar.icon} size="md" />
               <h3 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">{pillar.title}</h3>
               <p className="text-sm text-navy-600 dark:text-cream-100/70">{pillar.description}</p>

@@ -14,7 +14,7 @@ export function NossaMissao() {
       <section className="bg-cream-100 px-4 py-16 sm:px-6 lg:px-8 dark:bg-navy-900">
         <div className="mx-auto flex max-w-4xl flex-col gap-8">
           <div className="flex flex-col gap-3">
-            <h2 className="text-left font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Quem Somos</h2>
+            <h2 className="text-center font-display text-2xl font-semibold text-navy-900 sm:text-left dark:text-cream-50">Quem Somos</h2>
             <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
               A Missão Santa Faustina é uma comunidade viva e um grupo de fiéis católicos localizada no bairro Eucaliptos,
               mais especificamente na região do Jardim Greenfield, em Fazenda Rio Grande - PR. Vinculada diretamente à
@@ -24,7 +24,7 @@ export function NossaMissao() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h2 className="text-left font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nossa História e Origem</h2>
+            <h2 className="text-center font-display text-2xl font-semibold text-navy-900 sm:text-left dark:text-cream-50">Nossa História e Origem</h2>
             <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
               A comunidade teve sua origem inspirada a partir de uma marcante visita pastoral realizada pelo Bispo Dom Celso.
               Desde a sua concepção, o principal objetivo da missão tem sido ir ao encontro das famílias,
@@ -34,7 +34,7 @@ export function NossaMissao() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h2 className="text-left font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Onde Nos Reunimos e Nosso Futuro</h2>
+            <h2 className="text-center font-display text-2xl font-semibold text-navy-900 sm:text-left dark:text-cream-50">Onde Nos Reunimos e Nosso Futuro</h2>
             <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
               Atualmente, como uma comunidade em constante expansão e acolhimento, os nossos encontros acontecem através das missas dominicais,
               que são celebradas quinzenalmente aos domingos nas dependências da Escola Net Franco, situada no Jardim Greenfield.
@@ -47,14 +47,14 @@ export function NossaMissao() {
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
             <h2 className="font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nosso propósito</h2>
             <p className="text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
               Anunciar a misericórdia de Deus revelada em Jesus Cristo, acolhendo cada pessoa como Ele nos acolhe,
               e formar discípulos que vivem a fé em comunidade, na oração e no serviço ao próximo.
             </p>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
             <h2 className="font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nossa visão</h2>
             <p className="text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
               Ser uma comunidade que irradia a mensagem "Jesus, eu confio em Vós" para todas as famílias do nosso
@@ -71,7 +71,7 @@ export function NossaMissao() {
           </h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             {pillars.map((pillar) => (
-              <div key={pillar.title} className="flex flex-col items-start gap-3 text-left">
+              <div key={pillar.title} className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
                 <IconBadge icon={pillar.icon} />
                 <h3 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">
                   {pillar.title}

@@ -48,7 +48,7 @@ export function DivinaMisericordia() {
       <section className="bg-cream-100 px-4 py-16 sm:px-6 lg:px-8 dark:bg-navy-900">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3">
           {devotions.map((devotion) => (
-            <div key={devotion.title} className="flex flex-col items-start gap-3 text-left">
+            <div key={devotion.title} className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
               <IconBadge icon={devotion.icon} />
               <h3 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">
                 {devotion.title}

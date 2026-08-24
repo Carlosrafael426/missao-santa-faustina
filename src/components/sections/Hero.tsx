@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream-50 dark:bg-navy-950">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-20">
-        <div className="flex flex-col items-start gap-5 text-left">
+        <div className="flex flex-col items-center gap-5 text-center lg:items-start lg:text-left">
           <span className="text-[0.68rem] font-semibold tracking-[0.2em] text-gold-600 uppercase dark:text-gold-400">
             Bem-vindo à
           </span>

@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="border-t border-navy-100 bg-cream-50 dark:border-white/10 dark:bg-navy-950">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center justify-center gap-3 lg:justify-start">
           <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold-400 dark:bg-white/10">
             <Cross className="h-4 w-4" aria-hidden="true" />
           </span>
