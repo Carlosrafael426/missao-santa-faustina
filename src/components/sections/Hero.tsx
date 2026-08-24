@@ -121,7 +121,7 @@ export function Hero() {
             ref={imgRef}
             src={jesusMisericordioso}
             alt="Jesus Misericordioso — Jesus, eu confio em Vós"
-            className="mx-auto w-full max-w-[220px] rounded-t-full object-cover shadow-xl shadow-navy-900/20 sm:max-w-[260px] lg:max-w-[300px]"
+            className="mercy-image-fade mx-auto w-full max-w-[220px] rounded-t-full object-cover sm:max-w-[260px] lg:max-w-[300px]"
           />
         </div>
       </div>
@@ -137,7 +137,7 @@ export function Hero() {
             <img
               src={jesusMisericordioso}
               alt=""
-              className="rounded-t-full object-cover shadow-xl shadow-navy-900/20"
+              className="mercy-image-fade rounded-t-full object-cover"
               style={{
                 ...overlayBoxStyle,
                 transform: overlayTransform,

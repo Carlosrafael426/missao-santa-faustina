@@ -57,3 +57,9 @@ body {
   font-family: var(--font-sans);
   @apply bg-cream-50 text-navy-900 antialiased dark:bg-navy-950 dark:text-cream-100;
 }
+
+.mercy-image-fade {
+  -webkit-mask-image: radial-gradient(ellipse 90% 92% at 50% 42%, black 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 92% at 50% 42%, black 62%, transparent 100%);
+  filter: drop-shadow(0 16px 24px rgba(16, 31, 54, 0.16));
+}
