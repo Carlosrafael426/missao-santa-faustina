@@ -3,17 +3,15 @@ import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 import jesusMisericordioso from '../../assets/images/jesus-misericordioso.jpg'
 
-const INTRO_SESSION_KEY = 'msf-intro-played'
-const TRANSFORM_DURATION = 1100
-const FADE_DURATION = 250
+const HOLD_DURATION = 700
+const TRANSFORM_DURATION = 2200
+const FADE_DURATION = 400
 
 type IntroPhase = 'idle' | 'playing' | 'done'
 
 export function Hero() {
   const imgRef = useRef<HTMLImageElement>(null)
-  const [introPhase, setIntroPhase] = useState<IntroPhase>(() =>
-    sessionStorage.getItem(INTRO_SESSION_KEY) ? 'done' : 'idle',
-  )
+  const [introPhase, setIntroPhase] = useState<IntroPhase>('idle')
   const [overlayBoxStyle, setOverlayBoxStyle] = useState<CSSProperties | null>(null)
   const [overlayTransform, setOverlayTransform] = useState('translate(0, 0) scale(1)')
   const [transformTransition, setTransformTransition] = useState('none')
@@ -21,12 +19,11 @@ export function Hero() {
   const [opacityTransition, setOpacityTransition] = useState('none')
 
   useLayoutEffect(() => {
-    if (sessionStorage.getItem(INTRO_SESSION_KEY) || !imgRef.current) return
+    if (!imgRef.current) return
     const img = imgRef.current
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduceMotion) {
-      sessionStorage.setItem(INTRO_SESSION_KEY, '1')
       setIntroPhase('done')
       return
     }
@@ -55,30 +52,26 @@ export function Hero() {
       setOverlayTransform(`translate(${dx}px, ${dy}px) scale(${scale})`)
       setIntroPhase('playing')
 
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setTransformTransition(`transform ${TRANSFORM_DURATION}ms cubic-bezier(0.16, 1, 0.3, 1)`)
-          setOverlayTransform('translate(0, 0) scale(1)')
-        })
-      })
+      const holdTimer = setTimeout(() => {
+        setTransformTransition(`transform ${TRANSFORM_DURATION}ms cubic-bezier(0.16, 1, 0.3, 1)`)
+        setOverlayTransform('translate(0, 0) scale(1)')
+      }, HOLD_DURATION)
 
       const fadeTimer = setTimeout(() => {
         setOpacityTransition(`opacity ${FADE_DURATION}ms ease`)
         setOverlayOpacity(0)
-      }, TRANSFORM_DURATION)
+      }, HOLD_DURATION + TRANSFORM_DURATION)
 
       const endTimer = setTimeout(() => {
         document.body.style.overflow = ''
-        sessionStorage.setItem(INTRO_SESSION_KEY, '1')
         setIntroPhase('done')
-      }, TRANSFORM_DURATION + FADE_DURATION)
+      }, HOLD_DURATION + TRANSFORM_DURATION + FADE_DURATION)
 
-      cleanupTimers.push(fadeTimer, endTimer)
+      cleanupTimers.push(holdTimer, fadeTimer, endTimer)
     }
 
     function skipIntro() {
       document.body.style.overflow = ''
-      sessionStorage.setItem(INTRO_SESSION_KEY, '1')
       setIntroPhase('done')
     }
 
