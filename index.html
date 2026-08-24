@@ -13,6 +13,19 @@
         if (dark) document.documentElement.classList.add('dark')
       })()
     </script>
+    <script>
+      // Restore the real path after the GitHub Pages 404.html SPA redirect
+      // (see public/404.html) so BrowserRouter sees the intended URL.
+      ;(function () {
+        var l = window.location
+        var params = new URLSearchParams(l.search)
+        var p = params.get('p')
+        if (p) {
+          var q = params.get('q')
+          window.history.replaceState(null, '', l.pathname + p + (q ? '?' + q : '') + l.hash)
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
