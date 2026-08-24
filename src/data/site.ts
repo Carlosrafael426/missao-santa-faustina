@@ -5,7 +5,7 @@ export const siteInfo = {
   city: 'Fazenda Rio Grande - PR',
   phone: '(41) 99999-9999',
   email: 'contato@missaosantafaustina.org.br',
-  instagram: 'https://instagram.com',
+  instagram: 'https://www.instagram.com/santafaustinafrg/',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
 }
