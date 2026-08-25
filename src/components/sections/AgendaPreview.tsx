@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { EventListItem } from '../common/EventListItem'
-import { upcomingEvents } from '../../data/events'
+import { getUpcomingEvents } from '../../data/events'
 import { useReveal } from '../../hooks/useReveal'
+
+const upcomingEvents = getUpcomingEvents(new Date(), 4)
 
 export function AgendaPreview() {
   const reveal = useReveal<HTMLDivElement>()
@@ -17,7 +19,7 @@ export function AgendaPreview() {
           Próximos Encontros
         </h3>
         <ul className="flex flex-col gap-3">
-          {upcomingEvents.slice(0, 4).map((event) => (
+          {upcomingEvents.map((event) => (
             <EventListItem key={`${event.title}-${event.date}`} event={event} />
           ))}
         </ul>

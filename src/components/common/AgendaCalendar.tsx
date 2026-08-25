@@ -1,11 +1,8 @@
 import { useMemo, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { EventListItem } from './EventListItem'
+import { getEventsForMonth } from '../../data/events'
 import type { MissionEvent } from '../../types'
-
-interface AgendaCalendarProps {
-  events: MissionEvent[]
-}
 
 const WEEKDAY_LABELS = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
 const MONTH_FORMATTER = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' })
@@ -32,20 +29,27 @@ function buildWeeks(year: number, month: number): (Cell | null)[][] {
   return weeks
 }
 
-export function AgendaCalendar({ events }: AgendaCalendarProps) {
+export function AgendaCalendar() {
+  const [cursor, setCursor] = useState(() => {
+    const today = new Date()
+    return new Date(today.getFullYear(), today.getMonth(), 1)
+  })
+  const [selectedDate, setSelectedDate] = useState<string | null>(null)
+
+  const monthEvents = useMemo(
+    () => getEventsForMonth(cursor.getFullYear(), cursor.getMonth()),
+    [cursor],
+  )
+
   const eventsByDate = useMemo(() => {
     const map = new Map<string, MissionEvent[]>()
-    for (const event of events) {
+    for (const event of monthEvents) {
       const list = map.get(event.date) ?? []
       list.push(event)
       map.set(event.date, list)
     }
     return map
-  }, [events])
-
-  const initialMonth = events[0] ? new Date(events[0].date) : new Date()
-  const [cursor, setCursor] = useState(() => new Date(initialMonth.getFullYear(), initialMonth.getMonth(), 1))
-  const [selectedDate, setSelectedDate] = useState<string | null>(null)
+  }, [monthEvents])
 
   const weeks = useMemo(() => buildWeeks(cursor.getFullYear(), cursor.getMonth()), [cursor])
   const selectedEvents = selectedDate ? (eventsByDate.get(selectedDate) ?? []) : []
@@ -56,7 +60,10 @@ export function AgendaCalendar({ events }: AgendaCalendarProps) {
         <button
           type="button"
           aria-label="Mês anterior"
-          onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))}
+          onClick={() => {
+            setSelectedDate(null)
+            setCursor((c) => new Date(c.getFullYear(), c.getMonth() - 1, 1))
+          }}
           className="inline-flex h-9 w-9 items-center justify-center rounded-full text-navy-700 transition-colors hover:bg-navy-100 dark:text-cream-100 dark:hover:bg-white/10"
         >
           <ChevronLeft className="h-4 w-4" aria-hidden="true" />
@@ -67,7 +74,10 @@ export function AgendaCalendar({ events }: AgendaCalendarProps) {
         <button
           type="button"
           aria-label="Próximo mês"
-          onClick={() => setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))}
+          onClick={() => {
+            setSelectedDate(null)
+            setCursor((c) => new Date(c.getFullYear(), c.getMonth() + 1, 1))
+          }}
           className="inline-flex h-9 w-9 items-center justify-center rounded-full text-navy-700 transition-colors hover:bg-navy-100 dark:text-cream-100 dark:hover:bg-white/10"
         >
           <ChevronRight className="h-4 w-4" aria-hidden="true" />

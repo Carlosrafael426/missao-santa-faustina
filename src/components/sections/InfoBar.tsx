@@ -1,10 +1,10 @@
 import { Calendar, HandHeart, MapPin, Users } from 'lucide-react'
 import { IconBadge } from '../ui/IconBadge'
 import { siteInfo } from '../../data/site'
-import { upcomingEvents } from '../../data/events'
+import { getUpcomingEvents } from '../../data/events'
 import { useReveal } from '../../hooks/useReveal'
 
-const nextEvent = upcomingEvents[0]
+const nextEvent = getUpcomingEvents(new Date(), 1)[0]
 
 const items = [
   {
