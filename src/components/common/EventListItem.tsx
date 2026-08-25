@@ -1,4 +1,4 @@
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, MapPin } from 'lucide-react'
 import type { MissionEvent } from '../../types'
 
 export function EventListItem({ event }: { event: MissionEvent }) {
@@ -11,6 +11,12 @@ export function EventListItem({ event }: { event: MissionEvent }) {
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-semibold text-navy-900 dark:text-cream-50">{event.title}</p>
         <p className="text-xs text-navy-500 dark:text-cream-100/60">{event.schedule}</p>
+        {event.location && (
+          <p className="mt-0.5 flex items-center gap-1 truncate text-xs text-navy-400 dark:text-cream-100/45">
+            <MapPin className="h-3 w-3 shrink-0" aria-hidden="true" />
+            {event.location}
+          </p>
+        )}
       </div>
       <ChevronRight className="h-4 w-4 shrink-0 text-navy-400 dark:text-cream-100/40" aria-hidden="true" />
     </li>
