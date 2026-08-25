@@ -60,11 +60,11 @@ body {
 
 .mercy-image-fade {
   -webkit-mask-image: radial-gradient(
-    ellipse 72% 78% at 50% 38%,
-    black 30%,
-    rgba(0, 0, 0, 0.6) 55%,
-    transparent 85%
+    ellipse 68% 68% at 50% 48%,
+    black 22%,
+    rgba(0, 0, 0, 0.5) 48%,
+    transparent 82%
   );
-  mask-image: radial-gradient(ellipse 72% 78% at 50% 38%, black 30%, rgba(0, 0, 0, 0.6) 55%, transparent 85%);
+  mask-image: radial-gradient(ellipse 68% 68% at 50% 48%, black 22%, rgba(0, 0, 0, 0.5) 48%, transparent 82%);
   filter: drop-shadow(0 16px 24px rgba(16, 31, 54, 0.16));
 }

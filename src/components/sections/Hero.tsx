@@ -38,7 +38,7 @@ export function Hero() {
       const finalCenterX = finalRect.left + finalRect.width / 2
       const finalCenterY = finalRect.top + finalRect.height / 2
 
-      const largeWidth = Math.min(window.innerWidth, window.innerHeight) * 0.6
+      const largeWidth = Math.min(window.innerWidth, window.innerHeight) * 0.66
       const scale = largeWidth / finalRect.width
       const dx = window.innerWidth / 2 - finalCenterX
       const dy = window.innerHeight / 2 - finalCenterY
@@ -129,7 +129,7 @@ export function Hero() {
             ref={imgRef}
             src={jesusMisericordioso}
             alt="Jesus Misericordioso — Jesus, eu confio em Vós"
-            className="mercy-image-fade mx-auto w-full max-w-[220px] rounded-t-full object-cover sm:max-w-[260px] lg:max-w-[300px]"
+            className="mercy-image-fade mx-auto w-full max-w-[242px] rounded-t-full object-cover sm:max-w-[286px] lg:max-w-[330px]"
           />
         </div>
       </div>
