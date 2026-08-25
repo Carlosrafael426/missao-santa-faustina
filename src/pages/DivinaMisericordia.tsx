@@ -38,14 +38,14 @@ export function DivinaMisericordia() {
 
       <section
         ref={introReveal.ref}
-        className={`mx-auto grid max-w-5xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,260px)_1fr] lg:px-8 ${introReveal.className}`}
+        className={`mx-auto grid max-w-5xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,360px)_1fr] lg:px-8 ${introReveal.className}`}
       >
         <img
           src={jesusMisericordioso}
           alt="Jesus Misericordioso — Jesus, eu confio em Vós"
-          className="mx-auto w-full max-w-[220px] rounded-t-full object-cover shadow-md shadow-navy-900/10"
+          className="mx-auto w-full max-w-[340px] rounded-t-full object-cover shadow-md shadow-navy-900/10"
         />
-        <p className="text-sm leading-relaxed text-navy-600 sm:text-base dark:text-cream-100/75">
+        <p className="max-w-sm text-sm leading-relaxed text-navy-600 sm:text-base dark:text-cream-100/75">
           "Pinta uma imagem segundo o modelo que vês, com a inscrição: Jesus, eu confio em Vós. Desejo que esta
           imagem seja venerada, primeiro na tua capela, e depois no mundo inteiro." — foi assim que Jesus pediu a
           Santa Faustina que fizesse conhecida Sua misericórdia a todas as almas.
