@@ -23,12 +23,6 @@ export interface MissionEvent {
   month: string
   title: string
   schedule: string
-}
-
-export interface NewsItem {
-  slug: string
-  title: string
-  excerpt: string
+  /** ISO date (YYYY-MM-DD) used to place the event on the agenda calendar. */
   date: string
-  image: string
 }

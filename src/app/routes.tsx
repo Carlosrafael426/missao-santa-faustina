@@ -5,8 +5,7 @@ import { NossaMissao } from '../pages/NossaMissao'
 import { SantaFaustina } from '../pages/SantaFaustina'
 import { DivinaMisericordia } from '../pages/DivinaMisericordia'
 import { Comunidade } from '../pages/Comunidade'
-import { Eventos } from '../pages/Eventos'
-import { Noticias } from '../pages/Noticias'
+import { Agenda } from '../pages/Agenda'
 import { Contato } from '../pages/Contato'
 import { NotFound } from '../pages/NotFound'
 
@@ -19,8 +18,7 @@ export const routes: RouteObject[] = [
       { path: '/santa-faustina', element: <SantaFaustina /> },
       { path: '/divina-misericordia', element: <DivinaMisericordia /> },
       { path: '/comunidade', element: <Comunidade /> },
-      { path: '/eventos', element: <Eventos /> },
-      { path: '/noticias', element: <Noticias /> },
+      { path: '/agenda', element: <Agenda /> },
       { path: '/contato', element: <Contato /> },
       { path: '*', element: <NotFound /> },
     ],

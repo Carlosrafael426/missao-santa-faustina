@@ -2,7 +2,7 @@ import { Hero } from '../components/sections/Hero'
 import { InfoBar } from '../components/sections/InfoBar'
 import { Pillars } from '../components/sections/Pillars'
 import { CommunityCarousel } from '../components/sections/CommunityCarousel'
-import { EventsNewsPreview } from '../components/sections/EventsNewsPreview'
+import { AgendaPreview } from '../components/sections/AgendaPreview'
 
 export function Home() {
   return (
@@ -11,7 +11,7 @@ export function Home() {
       <InfoBar />
       <Pillars />
       <CommunityCarousel />
-      <EventsNewsPreview />
+      <AgendaPreview />
     </>
   )
 }
