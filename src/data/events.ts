@@ -87,6 +87,13 @@ export function getUpcomingEvents(from: Date, count: number): MissionEvent[] {
   return getEventsInRange(from, rangeEnd).slice(0, count)
 }
 
+/** Every occurrence in the Sunday-to-Saturday week that contains `from`. */
+export function getEventsForWeek(from: Date): MissionEvent[] {
+  const weekStart = new Date(from.getFullYear(), from.getMonth(), from.getDate() - from.getDay())
+  const weekEnd = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 6)
+  return getEventsInRange(weekStart, weekEnd)
+}
+
 /** Every occurrence that falls within a given calendar month (0-indexed month, like Date). */
 export function getEventsForMonth(year: number, month: number): MissionEvent[] {
   const rangeStart = new Date(year, month, 1)

@@ -1,10 +1,10 @@
 import { PageHero } from '../components/common/PageHero'
 import { EventListItem } from '../components/common/EventListItem'
 import { AgendaCalendar } from '../components/common/AgendaCalendar'
-import { getUpcomingEvents } from '../data/events'
+import { getEventsForWeek } from '../data/events'
 import { useReveal } from '../hooks/useReveal'
 
-const upcomingEvents = getUpcomingEvents(new Date(), 8)
+const weekEvents = getEventsForWeek(new Date())
 
 export function Calendario() {
   const reveal = useReveal<HTMLDivElement>()
@@ -21,12 +21,16 @@ export function Calendario() {
         <div ref={reveal.ref} className={`grid grid-cols-1 gap-10 md:grid-cols-2 ${reveal.className}`}>
           <AgendaCalendar />
           <div className="flex flex-col gap-4">
-            <h3 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">Próximos Encontros</h3>
-            <ul className="flex flex-col gap-3">
-              {upcomingEvents.map((event) => (
-                <EventListItem key={`${event.title}-${event.date}`} event={event} />
-              ))}
-            </ul>
+            <h3 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">Encontros da Semana</h3>
+            {weekEvents.length > 0 ? (
+              <ul className="flex flex-col gap-3">
+                {weekEvents.map((event) => (
+                  <EventListItem key={`${event.title}-${event.date}`} event={event} />
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-navy-500 dark:text-cream-100/60">Nenhum encontro esta semana.</p>
+            )}
           </div>
         </div>
       </section>
