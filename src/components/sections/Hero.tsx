@@ -12,6 +12,7 @@ type IntroPhase = 'idle' | 'playing' | 'done'
 export function Hero() {
   const imgRef = useRef<HTMLImageElement>(null)
   const [introPhase, setIntroPhase] = useState<IntroPhase>('idle')
+  const [contentVisible, setContentVisible] = useState(false)
   const [overlayBoxStyle, setOverlayBoxStyle] = useState<CSSProperties | null>(null)
   const [overlayTransform, setOverlayTransform] = useState('translate(0, 0) scale(1)')
   const [transformTransition, setTransformTransition] = useState('none')
@@ -25,6 +26,7 @@ export function Hero() {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduceMotion) {
       setIntroPhase('done')
+      setContentVisible(true)
       return
     }
 
@@ -36,7 +38,7 @@ export function Hero() {
       const finalCenterX = finalRect.left + finalRect.width / 2
       const finalCenterY = finalRect.top + finalRect.height / 2
 
-      const largeWidth = Math.min(window.innerWidth, window.innerHeight) * 0.8
+      const largeWidth = Math.min(window.innerWidth, window.innerHeight) * 0.6
       const scale = largeWidth / finalRect.width
       const dx = window.innerWidth / 2 - finalCenterX
       const dy = window.innerHeight / 2 - finalCenterY
@@ -55,6 +57,7 @@ export function Hero() {
       const holdTimer = setTimeout(() => {
         setTransformTransition(`transform ${TRANSFORM_DURATION}ms cubic-bezier(0.16, 1, 0.3, 1)`)
         setOverlayTransform('translate(0, 0) scale(1)')
+        setContentVisible(true)
       }, HOLD_DURATION)
 
       const fadeTimer = setTimeout(() => {
@@ -73,6 +76,7 @@ export function Hero() {
     function skipIntro() {
       document.body.style.overflow = ''
       setIntroPhase('done')
+      setContentVisible(true)
     }
 
     const cleanupTimers: ReturnType<typeof setTimeout>[] = []
@@ -95,7 +99,11 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream-50 dark:bg-navy-950">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-20">
-        <div className="flex flex-col items-center gap-5 text-center lg:items-start lg:text-left">
+        <div
+          className={`flex flex-col items-center gap-5 text-center transition-all duration-700 ease-out lg:items-start lg:text-left ${
+            contentVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+          }`}
+        >
           <span className="text-[0.68rem] font-semibold tracking-[0.2em] text-gold-600 uppercase dark:text-gold-400">
             Bem-vindo à
           </span>

@@ -1,0 +1,34 @@
+import { useEffect, useRef, useState } from 'react'
+
+export function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -80px 0px' },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  const className = `transition-all duration-700 ease-out ${
+    visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+  }`
+
+  return { ref, className }
+}

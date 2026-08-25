@@ -3,11 +3,14 @@ import { ArrowRight } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { IconBadge } from '../ui/IconBadge'
 import { pillars } from '../../data/pillars'
+import { useReveal } from '../../hooks/useReveal'
 
 export function Pillars() {
+  const reveal = useReveal<HTMLDivElement>()
+
   return (
     <section className="bg-cream-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 dark:bg-navy-950">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12">
+      <div ref={reveal.ref} className={`mx-auto flex max-w-7xl flex-col items-center gap-12 ${reveal.className}`}>
         <SectionHeading kicker="Nossa Espiritualidade" title="Pilares que sustentam nossa caminhada" />
 
         <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3">

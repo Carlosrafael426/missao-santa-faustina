@@ -2,6 +2,7 @@ import { Calendar, HandHeart, MapPin, Users } from 'lucide-react'
 import { IconBadge } from '../ui/IconBadge'
 import { siteInfo } from '../../data/site'
 import { upcomingEvents } from '../../data/events'
+import { useReveal } from '../../hooks/useReveal'
 
 const nextEvent = upcomingEvents[0]
 
@@ -33,9 +34,14 @@ const items = [
 ]
 
 export function InfoBar() {
+  const reveal = useReveal<HTMLDivElement>()
+
   return (
     <section className="border-y border-navy-100 bg-white dark:border-white/10 dark:bg-navy-900">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div
+        ref={reveal.ref}
+        className={`mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8 ${reveal.className}`}
+      >
         {items.map((item) => (
           <div key={item.label} className="flex items-center gap-4">
             <IconBadge icon={item.icon} size="sm" />

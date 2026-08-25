@@ -2,6 +2,7 @@ import { Clock3, HandHeart, Repeat } from 'lucide-react'
 import { PageHero } from '../components/common/PageHero'
 import { IconBadge } from '../components/ui/IconBadge'
 import jesusMisericordioso from '../assets/images/jesus-misericordioso.jpg'
+import { useReveal } from '../hooks/useReveal'
 
 const devotions = [
   {
@@ -24,6 +25,9 @@ const devotions = [
 ]
 
 export function DivinaMisericordia() {
+  const introReveal = useReveal<HTMLElement>()
+  const devotionsReveal = useReveal<HTMLDivElement>()
+
   return (
     <>
       <PageHero
@@ -32,7 +36,10 @@ export function DivinaMisericordia() {
         description="Uma devoção que nos convida a confiar na infinita misericórdia de Deus, revelada a Santa Faustina."
       />
 
-      <section className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,260px)_1fr] lg:px-8">
+      <section
+        ref={introReveal.ref}
+        className={`mx-auto grid max-w-5xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,260px)_1fr] lg:px-8 ${introReveal.className}`}
+      >
         <img
           src={jesusMisericordioso}
           alt="Jesus Misericordioso — Jesus, eu confio em Vós"
@@ -46,7 +53,10 @@ export function DivinaMisericordia() {
       </section>
 
       <section className="bg-cream-100 px-4 py-16 sm:px-6 lg:px-8 dark:bg-navy-900">
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3">
+        <div
+          ref={devotionsReveal.ref}
+          className={`mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-3 ${devotionsReveal.className}`}
+        >
           {devotions.map((devotion) => (
             <div key={devotion.title} className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
               <IconBadge icon={devotion.icon} />

@@ -1,7 +1,11 @@
 import { PageHero } from '../components/common/PageHero'
 import santaFaustina from '../assets/images/santa-faustina.jpg'
+import { useReveal } from '../hooks/useReveal'
 
 export function SantaFaustina() {
+  const bioReveal = useReveal<HTMLElement>()
+  const quoteReveal = useReveal<HTMLElement>()
+
   return (
     <>
       <PageHero
@@ -10,7 +14,10 @@ export function SantaFaustina() {
         description="A religiosa polonesa escolhida por Cristo para recordar ao mundo a mensagem da Divina Misericórdia."
       />
 
-      <section className="mx-auto grid max-w-5xl grid-cols-1 items-start gap-10 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,260px)_1fr] lg:px-8">
+      <section
+        ref={bioReveal.ref}
+        className={`mx-auto grid max-w-5xl grid-cols-1 items-start gap-10 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,260px)_1fr] lg:px-8 ${bioReveal.className}`}
+      >
         <img
           src={santaFaustina}
           alt="Santa Faustina Kowalska, fotografia de 1931"
@@ -36,7 +43,10 @@ export function SantaFaustina() {
         </div>
       </section>
 
-      <section className="bg-navy-950 px-4 py-14 text-center sm:px-6 lg:px-8">
+      <section
+        ref={quoteReveal.ref}
+        className={`bg-navy-950 px-4 py-14 text-center sm:px-6 lg:px-8 ${quoteReveal.className}`}
+      >
         <blockquote className="mx-auto max-w-2xl font-display text-xl text-cream-50 italic sm:text-2xl">
           "Deixa que a graça de Deus atue em ti como Ele quer, e confia sempre nEle."
         </blockquote>

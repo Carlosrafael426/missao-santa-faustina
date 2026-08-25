@@ -4,11 +4,17 @@ import { EventListItem } from '../common/EventListItem'
 import { NewsCard } from '../common/NewsCard'
 import { upcomingEvents } from '../../data/events'
 import { newsItems } from '../../data/news'
+import { useReveal } from '../../hooks/useReveal'
 
 export function EventsNewsPreview() {
+  const reveal = useReveal<HTMLDivElement>()
+
   return (
     <section className="bg-cream-100 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 dark:bg-navy-950">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_2fr]">
+      <div
+        ref={reveal.ref}
+        className={`mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_2fr] ${reveal.className}`}
+      >
         <div className="flex flex-col gap-4 rounded-2xl border border-navy-100 bg-white p-6 dark:border-white/10 dark:bg-navy-900">
           <h3 className="text-center font-display text-lg font-semibold text-navy-900 lg:text-left dark:text-cream-50">Próximos Encontros</h3>
           <ul className="flex flex-col gap-3">

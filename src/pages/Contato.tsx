@@ -3,9 +3,11 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 import { PageHero } from '../components/common/PageHero'
 import { Button } from '../components/ui/Button'
 import { siteInfo } from '../data/site'
+import { useReveal } from '../hooks/useReveal'
 
 export function Contato() {
   const [sent, setSent] = useState(false)
+  const reveal = useReveal<HTMLElement>()
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -20,7 +22,11 @@ export function Contato() {
         description="Envie sua mensagem, pedido de oração ou dúvida. Responderemos com carinho."
       />
 
-      <section id="pedido-de-oracao" className="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:px-8">
+      <section
+        id="pedido-de-oracao"
+        ref={reveal.ref}
+        className={`mx-auto grid max-w-5xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:px-8 ${reveal.className}`}
+      >
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
             <label htmlFor="name" className="text-xs font-semibold tracking-wide text-navy-700 uppercase dark:text-cream-100/70">

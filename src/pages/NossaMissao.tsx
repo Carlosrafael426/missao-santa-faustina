@@ -1,8 +1,13 @@
 import { PageHero } from '../components/common/PageHero'
 import { IconBadge } from '../components/ui/IconBadge'
 import { pillars } from '../data/pillars'
+import { useReveal } from '../hooks/useReveal'
 
 export function NossaMissao() {
+  const historyReveal = useReveal<HTMLDivElement>()
+  const purposeReveal = useReveal<HTMLDivElement>()
+  const pillarsReveal = useReveal<HTMLDivElement>()
+
   return (
     <>
       <PageHero
@@ -12,7 +17,7 @@ export function NossaMissao() {
       />
 
       <section className="bg-cream-100 px-4 py-16 sm:px-6 lg:px-8 dark:bg-navy-900">
-        <div className="mx-auto flex max-w-4xl flex-col gap-8">
+        <div ref={historyReveal.ref} className={`mx-auto flex max-w-4xl flex-col gap-8 ${historyReveal.className}`}>
           <div className="flex flex-col gap-3">
             <h2 className="text-center font-display text-2xl font-semibold text-navy-900 sm:text-left dark:text-cream-50">Quem Somos</h2>
             <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
@@ -46,7 +51,10 @@ export function NossaMissao() {
       </section>
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2">
+        <div
+          ref={purposeReveal.ref}
+          className={`mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2 ${purposeReveal.className}`}
+        >
           <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
             <h2 className="font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">Nosso propósito</h2>
             <p className="text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
@@ -65,7 +73,10 @@ export function NossaMissao() {
       </section>
 
       <section className="bg-cream-100 px-4 py-16 sm:px-6 lg:px-8 dark:bg-navy-900">
-        <div className="mx-auto flex max-w-4xl flex-col gap-10">
+        <div
+          ref={pillarsReveal.ref}
+          className={`mx-auto flex max-w-4xl flex-col gap-10 ${pillarsReveal.className}`}
+        >
           <h2 className="text-center font-display text-2xl font-semibold text-navy-900 dark:text-cream-50">
             Pilares que sustentam nossa caminhada
           </h2>
