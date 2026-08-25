@@ -129,7 +129,7 @@ export function Hero() {
             ref={imgRef}
             src={jesusMisericordioso}
             alt="Jesus Misericordioso — Jesus, eu confio em Vós"
-            className="mercy-image-fade mx-auto w-full max-w-[242px] rounded-t-full object-cover sm:max-w-[286px] lg:max-w-[330px]"
+            className="mx-auto w-full max-w-[242px] rounded-t-full object-cover shadow-xl shadow-navy-900/20 sm:max-w-[286px] lg:max-w-[330px]"
           />
         </div>
       </div>
