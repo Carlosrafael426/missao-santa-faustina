@@ -22,10 +22,10 @@ export function AgendaPreview() {
           ))}
         </ul>
         <Link
-          to="/agenda"
+          to="/calendario"
           className="inline-flex items-center gap-1 self-center text-xs font-semibold tracking-wide text-gold-600 uppercase hover:text-gold-700 dark:text-gold-400 dark:hover:text-gold-300"
         >
-          Ver agenda completa
+          Ver calendário completo
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Link>
       </div>

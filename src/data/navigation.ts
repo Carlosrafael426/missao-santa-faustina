@@ -6,6 +6,6 @@ export const navLinks: NavLink[] = [
   { label: 'Santa Faustina', path: '/santa-faustina' },
   { label: 'Divina Misericórdia', path: '/divina-misericordia' },
   { label: 'Comunidade', path: '/comunidade' },
-  { label: 'Agenda', path: '/agenda' },
+  { label: 'Calendário', path: '/calendario' },
   { label: 'Contato', path: '/contato' },
 ]
