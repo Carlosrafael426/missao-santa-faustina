@@ -119,7 +119,7 @@ export function AgendaCalendar({ events }: AgendaCalendarProps) {
       {selectedEvents.length > 0 && (
         <div className="mt-6 flex flex-col gap-3 border-t border-navy-100 pt-4 dark:border-white/10">
           {selectedEvents.map((event) => (
-            <EventListItem key={event.title} event={event} />
+            <EventListItem key={`${event.title}-${event.date}`} event={event} />
           ))}
         </div>
       )}

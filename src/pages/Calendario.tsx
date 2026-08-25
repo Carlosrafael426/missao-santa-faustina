@@ -22,7 +22,7 @@ export function Calendario() {
             <h3 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">Próximos Encontros</h3>
             <ul className="flex flex-col gap-3">
               {upcomingEvents.map((event) => (
-                <EventListItem key={event.title} event={event} />
+                <EventListItem key={`${event.title}-${event.date}`} event={event} />
               ))}
             </ul>
           </div>

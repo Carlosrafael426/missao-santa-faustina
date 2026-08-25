@@ -17,8 +17,8 @@ export function AgendaPreview() {
           Próximos Encontros
         </h3>
         <ul className="flex flex-col gap-3">
-          {upcomingEvents.map((event) => (
-            <EventListItem key={event.title} event={event} />
+          {upcomingEvents.slice(0, 4).map((event) => (
+            <EventListItem key={`${event.title}-${event.date}`} event={event} />
           ))}
         </ul>
         <Link
