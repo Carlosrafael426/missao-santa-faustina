@@ -16,6 +16,9 @@ function buildWeeks(year: number, month: number): (Cell | null)[][] {
   const startOffset = new Date(year, month, 1).getDay()
   const daysInMonth = new Date(year, month + 1, 0).getDate()
 
+  // Leading/trailing `null`s pad the first and last week out to 7 cells so
+  // the grid always lines up under the Sun-Sat header, leaving empty boxes
+  // for days outside the current month.
   const cells: (Cell | null)[] = []
   for (let i = 0; i < startOffset; i++) cells.push(null)
   for (let day = 1; day <= daysInMonth; day++) {

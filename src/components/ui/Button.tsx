@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react'
 import { ArrowRight } from 'lucide-react'
 
-type Variant = 'primary' | 'outline' | 'outlineInverse' | 'ghost'
+type Variant = 'primary' | 'outline'
 
 interface ButtonOwnProps {
   variant?: Variant
@@ -13,8 +13,6 @@ const variantClasses: Record<Variant, string> = {
     'bg-gold-500 text-navy-950 hover:bg-gold-400 shadow-sm shadow-gold-900/10',
   outline:
     'border border-navy-300 text-navy-800 hover:bg-navy-50 dark:border-cream-100/30 dark:text-cream-100 dark:hover:bg-white/5',
-  outlineInverse: 'border border-cream-100/40 text-cream-50 hover:bg-white/10',
-  ghost: 'text-navy-700 hover:text-gold-600 dark:text-cream-100 dark:hover:text-gold-400',
 }
 
 type ButtonProps<T extends ElementType> = ButtonOwnProps & {

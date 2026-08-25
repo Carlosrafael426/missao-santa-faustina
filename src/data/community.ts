@@ -34,6 +34,6 @@ export const communityGroups: CommunityGroup[] = [
     slug: 'grupo-de-oracao',
     name: 'Grupo de Oração',
     image: maosUnidas,
-    description: 'Comunidade reunida semanalmente para rezar e adorar junta.',
+    description: 'Comunidade reunida semanalmente para rezar e adorar juntos.',
   },
 ]

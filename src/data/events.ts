@@ -69,6 +69,8 @@ export function getEventsInRange(rangeStart: Date, rangeEnd: Date): MissionEvent
     const firstOccurrence = parseISO(rule.startDate)
     const stepMs = rule.intervalWeeks * 7 * DAY_MS
 
+    // Jump straight to the first occurrence on/after `start` instead of walking
+    // one interval at a time from the rule's start date (which could be years back).
     const stepsBeforeStart = Math.max(0, Math.ceil((start.getTime() - firstOccurrence.getTime()) / stepMs))
     let occurrence = new Date(firstOccurrence.getTime() + stepsBeforeStart * stepMs)
 

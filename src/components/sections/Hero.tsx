@@ -34,6 +34,10 @@ export function Hero() {
 
     function startIntro() {
       if (!img) return
+      // FLIP technique: measure where the image will finally rest (First/Last),
+      // then render the overlay image already scaled up and shifted so it
+      // appears large and centered on screen (Invert). Animating the transform
+      // back to identity (Play) makes it shrink into the real image's spot.
       const finalRect = img.getBoundingClientRect()
       const finalCenterX = finalRect.left + finalRect.width / 2
       const finalCenterY = finalRect.top + finalRect.height / 2
@@ -94,6 +98,9 @@ export function Hero() {
       img.removeEventListener('error', skipIntro)
       document.body.style.overflow = ''
     }
+    // Intentionally empty: this must run once on mount only. Adding introPhase
+    // (or any state this effect sets) as a dependency would re-run the effect
+    // on every setIntroPhase call, cancelling the timers right after they're scheduled.
   }, [])
 
   return (

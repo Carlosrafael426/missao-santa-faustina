@@ -21,7 +21,7 @@ export function NossaMissao() {
           <div className="flex flex-col gap-3">
             <h2 className="text-center font-display text-2xl font-semibold text-navy-900 sm:text-left dark:text-cream-50">Quem Somos</h2>
             <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
-              A Missão Santa Faustina é uma comunidade viva e um grupo de fiéis católicos localizada no bairro Eucaliptos,
+              A Missão Santa Faustina é uma comunidade viva de fiéis católicos, localizada no bairro Eucaliptos,
               mais especificamente na região do Jardim Greenfield, em Fazenda Rio Grande - PR. Vinculada diretamente à
               Paróquia Nossa Senhora de Fátima, nossa comunidade nasceu sob a inspiração da espiritualidade da Divina
               Misericórdia e do carisma de Santa Faustina Kowalska, apóstola da misericórdia de Jesus.
@@ -43,7 +43,7 @@ export function NossaMissao() {
             <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
               Atualmente, como uma comunidade em constante expansão e acolhimento, os nossos encontros acontecem através das missas dominicais,
               que são celebradas quinzenalmente aos domingos nas dependências da Escola Net Franco, situada no Jardim Greenfield.
-              Estamos em constante crescimento e, com a graça de Deus, mobilizando nossos esforços em uma grande arrecadação para
+              Estamos em constante crescimento e, com a graça de Deus, mobilizamos nossos esforços em uma grande arrecadação para
               a compra de um terreno próprio e a construção da nossa tão sonhada capela no bairro, consolidando ainda mais o nosso espaço de evangelização.
             </p>
           </div>
