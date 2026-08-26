@@ -42,7 +42,7 @@ export function NossaMissao() {
             <h2 className="text-center font-display text-2xl font-semibold text-navy-900 sm:text-left dark:text-cream-50">Onde Nos Reunimos e Nosso Futuro</h2>
             <p className="text-justify text-sm leading-relaxed text-navy-600 dark:text-cream-100/70">
               Atualmente, como uma comunidade em constante expansão e acolhimento, os nossos encontros acontecem através das missas dominicais,
-              que são celebradas quinzenalmente aos domingos nas dependências da Escola Net Franco, situada no Jardim Greenfield.
+              que são celebradas quinzenalmente nas dependências da Escola Anete Franco, situada no Jardim Greenfield.
               Estamos em constante crescimento e, com a graça de Deus, mobilizamos nossos esforços em uma grande arrecadação para
               a compra de um terreno próprio e a construção da nossa tão sonhada capela no bairro, consolidando ainda mais o nosso espaço de evangelização.
             </p>

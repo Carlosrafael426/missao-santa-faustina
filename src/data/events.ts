@@ -16,7 +16,7 @@ const recurringEvents: RecurringEventRule[] = [
     schedule: 'Domingo · 17h30',
     startDate: '2026-08-30',
     intervalWeeks: 2,
-    location: 'Escola Net Franco',
+    location: 'Escola Anete Franco',
   },
   {
     title: 'Catequese de Adulto',
