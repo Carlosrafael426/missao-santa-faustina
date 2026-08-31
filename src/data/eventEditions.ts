@@ -3,6 +3,17 @@ import type { EventEdition, EventSeries } from '../types'
 
 const DATE_FORMATTER = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })
 
+// Files are named "foto(1).jpeg", "foto(2).jpeg", etc. — sort numerically by that
+// number instead of alphabetically, since string order would put "foto(10)" before "foto(2)".
+const noiteDaSopa3Photos = Object.entries(
+  import.meta.glob('/src/assets/images/3-noite-da-sopa/*.jpeg', { eager: true, import: 'default' }),
+)
+  .sort(([pathA], [pathB]) => {
+    const numberOf = (path: string) => Number(path.match(/\((\d+)\)/)?.[1] ?? 0)
+    return numberOf(pathA) - numberOf(pathB)
+  })
+  .map(([, url]) => url as string)
+
 /** Formats an edition's ISO date (YYYY-MM-DD) as a full Portuguese date, e.g. "29 de agosto de 2026". */
 export function formatEditionDate(iso: string): string {
   const [year, month, day] = iso.split('-').map(Number)
@@ -52,6 +63,8 @@ export const eventEditions: EventEdition[] = [
     title: '3ª Noite da Sopa',
     summary: 'Uma noite de sopas, bingo e fraternidade para arrecadar fundos para a construção da nossa capela.',
     date: '2026-08-29',
+    coverImage: noiteDaSopa3Photos[0],
+    gallery: noiteDaSopa3Photos,
     description: [
       'A 3ª Noite da Sopa é um momento especial de fé, união e fraternidade promovido pelos integrantes da Missão Santa Faustina. Mais do que um evento, é uma oportunidade de reunir nossa comunidade em torno daquilo que nos une: a fé em Deus, o amor ao próximo e o desejo de construir juntos uma comunidade cada vez mais forte.',
       'Em uma noite preparada com muito carinho, teremos deliciosas sopas, além de bebidas como chá de amendoim, quentão, refrigerantes e água. Também teremos bingo e momentos de confraternização, proporcionando uma noite de alegria para toda a família.',

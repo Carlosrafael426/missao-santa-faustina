@@ -25,19 +25,29 @@ export function EventoSerie() {
             <Link
               key={edition.slug}
               to={`/eventos/${edition.seriesSlug}/${edition.slug}`}
-              className="flex flex-col gap-3 rounded-2xl border border-navy-100 bg-white p-6 transition-colors hover:border-gold-300 dark:border-white/10 dark:bg-navy-900 dark:hover:border-gold-400/50"
+              className="flex flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white transition-colors hover:border-gold-300 dark:border-white/10 dark:bg-navy-900 dark:hover:border-gold-400/50"
             >
-              {edition.date && (
-                <span className="text-xs font-semibold tracking-wide text-gold-600 uppercase dark:text-gold-400">
-                  {formatEditionDate(edition.date)}
-                </span>
+              {edition.coverImage && (
+                <img
+                  src={edition.coverImage}
+                  alt={edition.title}
+                  loading="lazy"
+                  className="aspect-video w-full object-cover"
+                />
               )}
-              <h2 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">{edition.title}</h2>
-              <p className="text-sm text-navy-600 dark:text-cream-100/70">{edition.summary}</p>
-              <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold tracking-wide text-gold-600 uppercase hover:text-gold-700 dark:text-gold-400 dark:hover:text-gold-300">
-                Saiba mais
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
+              <div className="flex flex-1 flex-col gap-3 p-6">
+                {edition.date && (
+                  <span className="text-xs font-semibold tracking-wide text-gold-600 uppercase dark:text-gold-400">
+                    {formatEditionDate(edition.date)}
+                  </span>
+                )}
+                <h2 className="font-display text-lg font-semibold text-navy-900 dark:text-cream-50">{edition.title}</h2>
+                <p className="text-sm text-navy-600 dark:text-cream-100/70">{edition.summary}</p>
+                <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold tracking-wide text-gold-600 uppercase hover:text-gold-700 dark:text-gold-400 dark:hover:text-gold-300">
+                  Saiba mais
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+              </div>
             </Link>
           ))}
         </div>
