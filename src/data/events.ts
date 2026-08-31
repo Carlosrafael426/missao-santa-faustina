@@ -1,3 +1,4 @@
+import { eventEditions } from './eventEditions'
 import type { MissionEvent } from '../types'
 
 interface RecurringEventRule {
@@ -77,6 +78,24 @@ export function getEventsInRange(rangeStart: Date, rangeEnd: Date): MissionEvent
     while (occurrence <= end) {
       if (occurrence >= start) results.push(toMissionEvent(rule, occurrence))
       occurrence = new Date(occurrence.getTime() + stepMs)
+    }
+  }
+
+  // One-off special events (Eventos section) only show up here once they have a
+  // confirmed `date` — editions still missing one (see eventEditions.ts) are simply
+  // skipped rather than shown without a day on the calendar.
+  for (const edition of eventEditions) {
+    if (!edition.date) continue
+    const occurrence = parseISO(edition.date)
+    if (occurrence >= start && occurrence <= end) {
+      results.push({
+        day: String(occurrence.getDate()).padStart(2, '0'),
+        month: MONTH_LABELS[occurrence.getMonth()],
+        title: edition.title,
+        schedule: 'Evento especial',
+        date: edition.date,
+        href: `/eventos/${edition.seriesSlug}/${edition.slug}`,
+      })
     }
   }
 
