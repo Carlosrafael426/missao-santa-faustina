@@ -71,3 +71,13 @@ body {
   mask-image: radial-gradient(ellipse 68% 68% at 50% 48%, black 22%, rgba(0, 0, 0, 0.5) 48%, transparent 82%);
   filter: drop-shadow(0 16px 24px rgba(16, 31, 54, 0.16));
 }
+
+/* Hides the scrollbar on a horizontally-scrolling element (e.g. PhotoCarousel)
+   without disabling the scroll gesture itself. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
