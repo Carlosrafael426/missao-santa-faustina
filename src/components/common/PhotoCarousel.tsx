@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 
+const AUTOPLAY_INTERVAL_MS = 3500
+
 interface PhotoCarouselProps {
   photos: string[]
   alt: string
@@ -10,14 +12,35 @@ interface PhotoCarouselProps {
 export function PhotoCarousel({ photos, alt }: PhotoCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [autoplayPaused, setAutoplayPaused] = useState(false)
+
+  const cardStep = () => {
+    const track = trackRef.current
+    const card = track?.querySelector<HTMLElement>('[data-carousel-card]')
+    return (card?.offsetWidth ?? 280) + 16
+  }
 
   const scrollByCard = (direction: 1 | -1) => {
-    const track = trackRef.current
-    if (!track) return
-    const card = track.querySelector<HTMLElement>('[data-carousel-card]')
-    const step = (card?.offsetWidth ?? 280) + 16
-    track.scrollBy({ left: step * direction, behavior: 'smooth' })
+    trackRef.current?.scrollBy({ left: cardStep() * direction, behavior: 'smooth' })
   }
+
+  // Auto-advance the carousel, looping back to the start once it reaches the end.
+  // Paused while the user is hovering/touching it, while the lightbox is open, or
+  // for anyone who has asked the OS for reduced motion.
+  useEffect(() => {
+    if (photos.length <= 1 || autoplayPaused || lightboxIndex !== null) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const id = setInterval(() => {
+      const track = trackRef.current
+      if (!track) return
+      const step = cardStep()
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - step / 2
+      track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + step, behavior: 'smooth' })
+    }, AUTOPLAY_INTERVAL_MS)
+
+    return () => clearInterval(id)
+  }, [photos.length, autoplayPaused, lightboxIndex])
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), [])
   const showPrev = useCallback(() => {
@@ -49,7 +72,13 @@ export function PhotoCarousel({ photos, alt }: PhotoCarouselProps) {
 
   return (
     <>
-      <div className="relative">
+      <div
+        className="relative"
+        onMouseEnter={() => setAutoplayPaused(true)}
+        onMouseLeave={() => setAutoplayPaused(false)}
+        onTouchStart={() => setAutoplayPaused(true)}
+        onTouchEnd={() => setAutoplayPaused(false)}
+      >
         <div
           ref={trackRef}
           className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-2 sm:px-6 lg:px-8"
