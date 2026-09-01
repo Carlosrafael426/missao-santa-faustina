@@ -29,7 +29,7 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-4 2xl:flex 2xl:gap-6">
+          <nav className="hidden items-center gap-3 xl:flex xl:gap-4">
             {navLinks.map((link) => (
               <RouterNavLink
                 key={link.path}
@@ -66,7 +66,7 @@ export function Header() {
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Abrir menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-navy-800 hover:bg-navy-100 2xl:hidden dark:text-cream-100 dark:hover:bg-white/10"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-navy-800 hover:bg-navy-100 xl:hidden dark:text-cream-100 dark:hover:bg-white/10"
             >
               <Menu className="h-5 w-5" aria-hidden="true" />
             </button>

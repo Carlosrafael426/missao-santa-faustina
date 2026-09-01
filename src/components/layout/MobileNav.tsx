@@ -11,7 +11,7 @@ interface MobileNavProps {
 export function MobileNav({ open, onClose }: MobileNavProps) {
   return (
     <div
-      className={`fixed inset-0 z-50 transition-opacity 2xl:hidden ${
+      className={`fixed inset-0 z-50 transition-opacity xl:hidden ${
         open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
       }`}
       role="dialog"
