@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Cross, Mail, MapPin, Phone } from 'lucide-react'
-import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
+import { Cross, Mail, MapPin } from 'lucide-react'
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa'
 import { siteInfo } from '../../data/site'
 
 export function Footer() {
@@ -29,13 +29,6 @@ export function Footer() {
             {siteInfo.neighborhood}, {siteInfo.city}
           </span>
           <a
-            href={`tel:${siteInfo.phone}`}
-            className="flex items-center gap-2 transition-colors hover:text-gold-600 dark:hover:text-gold-400"
-          >
-            <Phone className="h-4 w-4 shrink-0 text-gold-600 dark:text-gold-400" aria-hidden="true" />
-            {siteInfo.phone}
-          </a>
-          <a
             href={`mailto:${siteInfo.email}`}
             className="flex items-center gap-2 transition-colors hover:text-gold-600 dark:hover:text-gold-400"
           >
@@ -45,6 +38,17 @@ export function Footer() {
         </div>
 
         <div className="flex justify-center gap-3">
+          {siteInfo.whatsappGroup && (
+            <a
+              href={siteInfo.whatsappGroup}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Grupo do WhatsApp"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy-200 text-navy-700 transition-colors hover:border-gold-400 hover:text-gold-600 dark:border-white/15 dark:text-cream-100 dark:hover:text-gold-400"
+            >
+              <FaWhatsapp className="h-4 w-4" aria-hidden="true" />
+            </a>
+          )}
           <a
             href={siteInfo.instagram}
             target="_blank"
@@ -53,24 +57,6 @@ export function Footer() {
             className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy-200 text-navy-700 transition-colors hover:border-gold-400 hover:text-gold-600 dark:border-white/15 dark:text-cream-100 dark:hover:text-gold-400"
           >
             <FaInstagram className="h-4 w-4" aria-hidden="true" />
-          </a>
-          <a
-            href={siteInfo.facebook}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Facebook"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy-200 text-navy-700 transition-colors hover:border-gold-400 hover:text-gold-600 dark:border-white/15 dark:text-cream-100 dark:hover:text-gold-400"
-          >
-            <FaFacebookF className="h-4 w-4" aria-hidden="true" />
-          </a>
-          <a
-            href={siteInfo.youtube}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="YouTube"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy-200 text-navy-700 transition-colors hover:border-gold-400 hover:text-gold-600 dark:border-white/15 dark:text-cream-100 dark:hover:text-gold-400"
-          >
-            <FaYoutube className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
       </div>

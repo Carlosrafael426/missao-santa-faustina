@@ -3,9 +3,12 @@ export const siteInfo = {
   tagline: 'Jesus, eu confio em Vós',
   neighborhood: 'Bairro Eucaliptos',
   city: 'Fazenda Rio Grande - PR',
-  phone: '(41) 99999-9999',
   email: 'contato@missaosantafaustina.org.br',
+  // TODO: cole aqui o link de convite do grupo (https://chat.whatsapp.com/...) assim que
+  // tiver — o botão só aparece no site quando este campo não estiver vazio.
+  whatsappGroup: '',
   instagram: 'https://www.instagram.com/santafaustinafrg/',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
 }
+
+/** Canonical production domain — used for SEO (canonical/OG tags, sitemap, JSON-LD). */
+export const SITE_URL = 'https://www.santafaustinafrg.com.br'

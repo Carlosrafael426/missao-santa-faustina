@@ -1,13 +1,22 @@
 import { type FormEvent, useState } from 'react'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
 import { PageHero } from '../components/common/PageHero'
 import { Button } from '../components/ui/Button'
 import { siteInfo } from '../data/site'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 export function Contato() {
   const [sent, setSent] = useState(false)
   const reveal = useReveal<HTMLElement>()
+
+  useSeo({
+    title: 'Fale Conosco',
+    description:
+      'Entre em contato com a Missão Santa Faustina em Fazenda Rio Grande, PR: envie uma mensagem, pedido de oração ou entre no grupo do WhatsApp da comunidade.',
+    path: '/contato',
+  })
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -82,12 +91,22 @@ export function Contato() {
               <p className="text-sm text-navy-600 dark:text-cream-100/70">{siteInfo.city}</p>
             </div>
           </div>
-          <div className="flex items-start gap-3">
-            <Phone className="mt-0.5 h-5 w-5 shrink-0 text-gold-600 dark:text-gold-400" aria-hidden="true" />
-            <a href={`tel:${siteInfo.phone}`} className="text-sm text-navy-600 hover:text-gold-600 dark:text-cream-100/70 dark:hover:text-gold-400">
-              {siteInfo.phone}
+          {siteInfo.whatsappGroup && (
+            <a
+              href={siteInfo.whatsappGroup}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 rounded-2xl border border-navy-100 bg-white p-4 transition-colors hover:border-gold-300 dark:border-white/10 dark:bg-navy-900 dark:hover:border-gold-400/50"
+            >
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
+                <FaWhatsapp className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span>
+                <p className="text-sm font-semibold text-navy-900 dark:text-cream-50">Entrar no Grupo do WhatsApp</p>
+                <p className="text-sm text-navy-600 dark:text-cream-100/70">Fique por dentro dos avisos da missão</p>
+              </span>
             </a>
-          </div>
+          )}
           <div className="flex items-start gap-3">
             <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gold-600 dark:text-gold-400" aria-hidden="true" />
             <a href={`mailto:${siteInfo.email}`} className="text-sm text-navy-600 hover:text-gold-600 dark:text-cream-100/70 dark:hover:text-gold-400">
