@@ -4,6 +4,7 @@ import { PageHero } from '../components/common/PageHero'
 import { NotFound } from './NotFound'
 import { eventEditions, eventSeries, formatEditionDate } from '../data/eventEditions'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 export function EventoSerie() {
   const { seriesSlug } = useParams<{ seriesSlug: string }>()
@@ -12,6 +13,13 @@ export function EventoSerie() {
     .filter((edition) => edition.seriesSlug === seriesSlug)
     .sort((a, b) => a.slug.localeCompare(b.slug, 'pt-BR', { numeric: true }))
   const reveal = useReveal<HTMLDivElement>()
+
+  useSeo({
+    title: series?.title ?? 'Página não encontrada',
+    description: series?.summary ?? 'A página que você procura não existe ou foi movida.',
+    path: `/eventos/${seriesSlug ?? ''}`,
+    noindex: !series,
+  })
 
   if (!series) return <NotFound />
 

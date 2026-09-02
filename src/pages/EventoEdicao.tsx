@@ -5,6 +5,8 @@ import { PhotoCarousel } from '../components/common/PhotoCarousel'
 import { NotFound } from './NotFound'
 import { eventEditions, eventSeries, formatEditionDate } from '../data/eventEditions'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
+import { SITE_URL } from '../data/site'
 
 export function EventoEdicao() {
   const { seriesSlug, editionSlug } = useParams<{ seriesSlug: string; editionSlug: string }>()
@@ -12,6 +14,40 @@ export function EventoEdicao() {
   const edition = eventEditions.find((e) => e.seriesSlug === seriesSlug && e.slug === editionSlug)
   const carouselReveal = useReveal<HTMLDivElement>()
   const descriptionReveal = useReveal<HTMLElement>()
+
+  const jsonLd =
+    edition && edition.date
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'Event',
+          name: edition.title,
+          description: edition.summary,
+          startDate: edition.date,
+          eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+          eventStatus: 'https://schema.org/EventScheduled',
+          location: {
+            '@type': 'Place',
+            name: 'Fazenda Rio Grande, PR',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Fazenda Rio Grande',
+              addressRegion: 'PR',
+              addressCountry: 'BR',
+            },
+          },
+          organizer: { '@type': 'Organization', name: 'Missão Santa Faustina', url: SITE_URL },
+          image: edition.coverImage ? `${SITE_URL}${edition.coverImage}` : undefined,
+        }
+      : undefined
+
+  useSeo({
+    title: edition?.title ?? 'Página não encontrada',
+    description: edition?.summary ?? 'A página que você procura não existe ou foi movida.',
+    path: `/eventos/${seriesSlug ?? ''}/${editionSlug ?? ''}`,
+    image: edition?.coverImage ? `${SITE_URL}${edition.coverImage}` : undefined,
+    jsonLd,
+    noindex: !series || !edition,
+  })
 
   if (!series || !edition) return <NotFound />
 

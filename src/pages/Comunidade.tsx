@@ -2,9 +2,17 @@ import { PageHero } from '../components/common/PageHero'
 import { GroupCard } from '../components/common/GroupCard'
 import { communityGroups } from '../data/community'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 export function Comunidade() {
   const reveal = useReveal<HTMLDivElement>()
+
+  useSeo({
+    title: 'Nossa Comunidade',
+    description:
+      'Grupos e atividades da Missão Santa Faustina em Fazenda Rio Grande, PR: catequese, bazar, missas, terço nas casas e grupo de oração.',
+    path: '/comunidade',
+  })
 
   return (
     <>

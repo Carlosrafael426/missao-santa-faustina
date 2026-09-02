@@ -2,11 +2,19 @@ import { PageHero } from '../components/common/PageHero'
 import { IconBadge } from '../components/ui/IconBadge'
 import { pillars } from '../data/pillars'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 export function NossaMissao() {
   const historyReveal = useReveal<HTMLDivElement>()
   const purposeReveal = useReveal<HTMLDivElement>()
   const pillarsReveal = useReveal<HTMLDivElement>()
+
+  useSeo({
+    title: 'Nossa Missão',
+    description:
+      'Conheça a história da Missão Santa Faustina: comunidade católica em Fazenda Rio Grande, PR, nascida da espiritualidade da Divina Misericórdia e do carisma de Santa Faustina Kowalska.',
+    path: '/nossa-missao',
+  })
 
   return (
     <>

@@ -3,6 +3,7 @@ import { PageHero } from '../components/common/PageHero'
 import { IconBadge } from '../components/ui/IconBadge'
 import jesusMisericordioso from '../assets/images/jesus-misericordioso.jpg'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 const devotions = [
   {
@@ -27,6 +28,13 @@ const devotions = [
 export function DivinaMisericordia() {
   const introReveal = useReveal<HTMLElement>()
   const devotionsReveal = useReveal<HTMLDivElement>()
+
+  useSeo({
+    title: 'Divina Misericórdia',
+    description:
+      'Conheça a devoção à Divina Misericórdia: o Terço da Misericórdia, a Hora da Misericórdia e a Festa da Divina Misericórdia, reveladas por Jesus a Santa Faustina.',
+    path: '/divina-misericordia',
+  })
 
   return (
     <>

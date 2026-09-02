@@ -1,7 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
+import { useSeo } from '../hooks/useSeo'
 
 export function NotFound() {
+  const { pathname } = useLocation()
+
+  useSeo({
+    title: 'Página não encontrada',
+    description: 'A página que você procura não existe ou foi movida.',
+    path: pathname,
+    noindex: true,
+  })
+
   return (
     <section className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-4 py-24 text-center">
       <span className="font-display text-6xl font-bold text-gold-500">404</span>

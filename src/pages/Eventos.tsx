@@ -4,9 +4,17 @@ import { PageHero } from '../components/common/PageHero'
 import { IconBadge } from '../components/ui/IconBadge'
 import { eventSeries } from '../data/eventEditions'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 export function Eventos() {
   const reveal = useReveal<HTMLDivElement>()
+
+  useSeo({
+    title: 'Eventos',
+    description:
+      'Confira os eventos e encontros especiais promovidos pela Missão Santa Faustina em Fazenda Rio Grande, PR, com fotos e histórico de cada edição.',
+    path: '/eventos',
+  })
 
   return (
     <>

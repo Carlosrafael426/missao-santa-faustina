@@ -1,10 +1,18 @@
 import { PageHero } from '../components/common/PageHero'
 import santaFaustina from '../assets/images/santa-faustina.jpg'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 export function SantaFaustina() {
   const bioReveal = useReveal<HTMLElement>()
   const quoteReveal = useReveal<HTMLElement>()
+
+  useSeo({
+    title: 'Santa Faustina Kowalska',
+    description:
+      'A vida de Santa Faustina Kowalska, a religiosa polonesa escolhida por Cristo para revelar ao mundo a mensagem da Divina Misericórdia.',
+    path: '/santa-faustina',
+  })
 
   return (
     <>

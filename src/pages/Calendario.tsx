@@ -3,11 +3,19 @@ import { EventListItem } from '../components/common/EventListItem'
 import { AgendaCalendar } from '../components/common/AgendaCalendar'
 import { getEventsForWeek } from '../data/events'
 import { useReveal } from '../hooks/useReveal'
+import { useSeo } from '../hooks/useSeo'
 
 const weekEvents = getEventsForWeek(new Date())
 
 export function Calendario() {
   const reveal = useReveal<HTMLDivElement>()
+
+  useSeo({
+    title: 'Calendário',
+    description:
+      'Confira a agenda de missas, catequese de adultos e catequese infantil da Missão Santa Faustina em Fazenda Rio Grande, PR.',
+    path: '/calendario',
+  })
 
   return (
     <>
