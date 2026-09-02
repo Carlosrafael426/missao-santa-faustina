@@ -11,4 +11,4 @@ export const siteInfo = {
 }
 
 /** Canonical production domain — used for SEO (canonical/OG tags, sitemap, JSON-LD). */
-export const SITE_URL = 'https://www.santafaustinafrg.com.br'
+export const SITE_URL = 'https://santafaustinafrg.com.br'

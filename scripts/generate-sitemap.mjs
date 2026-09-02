@@ -4,7 +4,7 @@
 // a new event series or edition is published in src/data/eventEditions.ts.
 import { writeFileSync } from 'node:fs'
 
-const SITE_URL = 'https://www.santafaustinafrg.com.br'
+const SITE_URL = 'https://santafaustinafrg.com.br'
 
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },

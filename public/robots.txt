@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.santafaustinafrg.com.br/sitemap.xml
+Sitemap: https://santafaustinafrg.com.br/sitemap.xml
