@@ -14,6 +14,13 @@ const noiteDaSopa3Photos = Object.entries(
   })
   .map(([, url]) => url as string)
 
+// Original WhatsApp export filenames (e.g. "WhatsApp Image 2026-09-01 at 21.31.37.jpeg") —
+// unlike the 3ª edition's renamed files, these sort correctly as plain strings since the
+// embedded date/time is zero-padded and shared across all of them.
+const noiteDaSopa2Photos = Object.values(
+  import.meta.glob('/src/assets/images/2-noite-da-sopa/*.jpeg', { eager: true, import: 'default' }),
+) as string[]
+
 /** Formats an edition's ISO date (YYYY-MM-DD) as a full Portuguese date, e.g. "29 de agosto de 2026". */
 export function formatEditionDate(iso: string): string {
   const [year, month, day] = iso.split('-').map(Number)
@@ -50,6 +57,8 @@ export const eventEditions: EventEdition[] = [
     slug: '2-noite-da-sopa',
     title: '2ª Noite da Sopa',
     summary: 'Uma noite de sopas, bingo e confraternização que reforçou os laços da nossa missão.',
+    coverImage: noiteDaSopa2Photos[0],
+    gallery: noiteDaSopa2Photos,
     description: [
       'A 2ª Noite da Sopa chegou consolidando o que a primeira edição havia começado: um encontro já esperado por muitos na comunidade, reunindo famílias antigas e novos rostos em torno da mesma mesa e do mesmo propósito.',
       'Com um cardápio ainda mais variado de sopas e bebidas quentes, a noite contou também com brincadeiras e um momento de bingo, trazendo alegria para adultos e crianças. A confraternização se estendeu pela noite, reforçando os laços de amizade dentro da missão.',

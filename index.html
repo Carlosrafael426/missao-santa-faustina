@@ -50,8 +50,9 @@
     </script>
     <script>
       (function () {
+        // Dark is the site's default look; only an explicit saved choice overrides it.
         var stored = localStorage.getItem('msf-theme')
-        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+        var dark = stored ? stored === 'dark' : true
         if (dark) document.documentElement.classList.add('dark')
       })()
     </script>

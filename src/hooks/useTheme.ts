@@ -7,7 +7,8 @@ const STORAGE_KEY = 'msf-theme'
 function getInitialTheme(): Theme {
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') return stored
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  // Dark is the site's default look; only an explicit saved choice overrides it.
+  return 'dark'
 }
 
 export function useTheme() {
