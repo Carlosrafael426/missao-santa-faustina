@@ -3,7 +3,7 @@ export const siteInfo = {
   tagline: 'Jesus, eu confio em Vós',
   neighborhood: 'Bairro Eucaliptos',
   city: 'Fazenda Rio Grande - PR',
-  email: 'contato@missaosantafaustina.org.br',
+  email: 'santafaustinafrg@gmail.com',
   // TODO: cole aqui o link de convite do grupo (https://chat.whatsapp.com/...) assim que
   // tiver — o botão só aparece no site quando este campo não estiver vazio.
   whatsappGroup: '',
